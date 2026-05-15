@@ -103,6 +103,8 @@ Valid records are merged in sorted filename order. Duplicate strategy IDs or ass
 
 Runtime network access is not required. The application code does not call Kraken, `fetch`, `axios`, or any outbound HTTP client at runtime.
 
+The frontend also uses system font stacks only. It does not import `next/font/google`, so `npm run build` and the Docker build do not fetch Google Fonts.
+
 ## Business Rules
 
 APY policy:
@@ -157,12 +159,24 @@ The test suite includes:
 Latest local verification result:
 
 - `npm run lint` passed
-- `npm test` passed: 20 tests
+- `npm test` passed: 21 tests
 - `npm run build` passed
 - `docker-compose up -d --build` passed
 - live API checks returned `200` for Standard, Premium, and Private
 - invalid tier returned structured `400 INVALID_TIER`
 - browser smoke checks confirmed tier switching, filtering, JSON links, and the product catalog UI
+
+Docker smoke output from the final local run:
+
+```text
+docker-compose ps
+earn-products   Up   0.0.0.0:3000->3000/tcp
+
+curl /earn-products?tier=standard -> 200, 3 products
+curl /earn-products?tier=premium  -> 200, 6 products
+curl /earn-products?tier=private  -> 200, 6 products
+curl /earn-products?tier=bad      -> 400, INVALID_TIER
+```
 
 ## Dependencies
 

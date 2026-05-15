@@ -54,6 +54,18 @@ describe("submission requirements", () => {
     expect(violations).toEqual([]);
   });
 
+  it("does not use build-time network font loaders", () => {
+    const sourceFiles = listRuntimeSourceFiles(path.join(root, "src"));
+    const violations = sourceFiles.flatMap((filePath) => {
+      const contents = fs.readFileSync(filePath, "utf8");
+      return contents.includes("next/font/google")
+        ? [path.relative(root, filePath)]
+        : [];
+    });
+
+    expect(violations).toEqual([]);
+  });
+
   it("documents the reviewer-critical decisions", () => {
     const readme = read("README.md");
     const designNote = read("solution-design-note.md");

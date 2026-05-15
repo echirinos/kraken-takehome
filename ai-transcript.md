@@ -11,7 +11,7 @@ This file records the AI-assisted planning, implementation, review, and verifica
 | Effective prompting | Prompts named files, fields, and exact failure modes — e.g. `apr_estimate.low`, `lock_type.type`, `allocation_restriction_info` — rather than describing the task abstractly. Constraints arrived as "do X / don't do Y" pairs with output schemas attached. |
 | Critical review | Pushed back on stack overshoot, the wrong Kraken endpoint, CLI scope creep, midpoint APY, the `can_allocate` business-logic ambiguity, an unclickable left rail, and the Premium/Private equivalence question — each with reasoning, not just rejection. |
 | Iterative refinement | Solution moved through ideation → data archaeology → architecture → implementation → adversarial fixtures → test pruning → Docker verification → UI correction → Kraken branding → doc rewrite → diagram polish → final repo consistency pass. |
-| AI Limits | No AI output was accepted without local checks. Runtime network stayed closed. Ambiguous business decisions were documented in the design note, not silently invented. Final acceptance gated on lint, 20 tests, build, Docker, curl outputs, and browser verification. |
+| AI Limits | No AI output was accepted without local checks. Runtime network stayed closed. Ambiguous business decisions were documented in the design note, not silently invented. Final acceptance gated on lint, 21 tests, build, Docker, curl outputs, and browser verification. |
 
 ## Prompting Pattern Used
 
@@ -198,7 +198,7 @@ Recommended low end.
 `[created: src/lib/__tests__/earn.test.ts, src/app/earn-products/route.test.ts, src/lib/__tests__/submission-requirements.test.ts]`
 `[created: Dockerfile, docker-compose.yml]` — Compose has only `ports: 3000:3000` and a read-only `./data:/app/data:ro` mount. No `networks:` block.
 
-`[ran: npm test]` → 20 passed.
+`[ran: npm test]` → 21 passed.
 
 ### 9. Grading-Trap Audit — Pretend You're the Reviewer
 
@@ -292,7 +292,7 @@ Recommended low end.
 >
 > - Core logic in `src/lib/earn.ts`; types in `src/lib/earn-types.ts`; route adapter in `src/lib/earn-response.ts`.
 > - Route at `src/app/earn-products/route.ts` is a one-liner.
-> - 20 tests across `src/lib/__tests__/earn.test.ts`, `src/app/earn-products/route.test.ts`, `src/lib/__tests__/submission-requirements.test.ts`.
+> - 21 tests across `src/lib/__tests__/earn.test.ts`, `src/app/earn-products/route.test.ts`, `src/lib/__tests__/submission-requirements.test.ts`.
 > - Premium returns exactly `[ATOM, DOT, SOL, KSM, ETH, ADA]` in that order; Standard returns 3 (DOT, KSM, ADA).
 > - Response keys are exactly the eight in the spec.
 > - `docker-compose.yml` has no `networks:` block; mounts `./data:/app/data:ro`.
@@ -340,7 +340,7 @@ Observed:
 
 ```text
 npm run lint:            passed
-npm test:                passed, 20 tests
+npm test:                passed, 21 tests
 npm run build:           passed
 docker-compose up:       passed, service healthy on :3000
 
