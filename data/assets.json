@@ -1,0 +1,124 @@
+{
+  "error": [],
+  "result": {
+    "ALGO": {
+      "aclass": "currency",
+      "altname": "ALGO",
+      "decimals": 8,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "ATOM": {
+      "aclass": "currency",
+      "altname": "ATOM",
+      "decimals": 8,
+      "display_decimals": 6,
+      "status": "enabled"
+    },
+    "AVAX": {
+      "aclass": "currency",
+      "altname": "AVAX",
+      "decimals": 8,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "DOT": {
+      "aclass": "currency",
+      "altname": "DOT",
+      "decimals": 10,
+      "display_decimals": 4,
+      "status": "enabled"
+    },
+    "FIL": {
+      "aclass": "currency",
+      "altname": "FIL",
+      "decimals": 8,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "FLR": {
+      "aclass": "currency",
+      "altname": "FLR",
+      "decimals": 8,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "KSM": {
+      "aclass": "currency",
+      "altname": "KSM",
+      "decimals": 10,
+      "display_decimals": 4,
+      "status": "enabled"
+    },
+    "MINA": {
+      "aclass": "currency",
+      "altname": "MINA",
+      "decimals": 8,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "POL": {
+      "aclass": "currency",
+      "altname": "MATIC",
+      "decimals": 10,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "SOL": {
+      "aclass": "currency",
+      "altname": "SOL",
+      "decimals": 8,
+      "display_decimals": 4,
+      "status": "enabled"
+    },
+    "USDC": {
+      "aclass": "currency",
+      "altname": "USDC",
+      "decimals": 8,
+      "display_decimals": 4,
+      "status": "enabled"
+    },
+    "XADA": {
+      "aclass": "currency",
+      "altname": "ADA",
+      "decimals": 8,
+      "display_decimals": 6,
+      "status": "enabled"
+    },
+    "XETH": {
+      "aclass": "currency",
+      "altname": "ETH",
+      "decimals": 10,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "XLTC": {
+      "aclass": "currency",
+      "altname": "LTC",
+      "decimals": 10,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "XXBT": {
+      "aclass": "currency",
+      "altname": "XBT",
+      "decimals": 10,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "XXDG": {
+      "aclass": "currency",
+      "altname": "XDG",
+      "decimals": 8,
+      "display_decimals": 5,
+      "status": "enabled"
+    },
+    "XXTZ": {
+      "aclass": "currency",
+      "altname": "XTZ",
+      "decimals": 8,
+      "display_decimals": 6,
+      "status": "enabled"
+    }
+  }
+}
