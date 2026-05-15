@@ -1,6 +1,6 @@
-# Kraken Earn Products PoC
+#  Earn Products PoC
 
-Aurora Bank wants to evaluate Kraken Earn products for a tiered crypto-yield offering. This repository contains a TypeScript proof of concept that reads Kraken-shaped local fixtures, applies Aurora's business policy, exposes the required API, and includes a small reviewer-facing demo UI.
+Aurora Bank wants to evaluate  Earn products for a tiered crypto-yield offering. This repository contains a TypeScript proof of concept that reads -shaped local fixtures, applies Aurora's business policy, exposes the required API, and includes a small reviewer-facing demo UI.
 
 The submission is designed for the grading environment: one Docker Compose command, no credentials, no outbound runtime network dependency, and deterministic local data handling.
 
@@ -86,7 +86,7 @@ Key files:
 | `src/app/earn-products/route.ts` | Required `GET /earn-products` endpoint. |
 | `src/app/page.tsx` | Server-side data load for the demo UI. |
 | `src/components/earn-products-dashboard.tsx` | Aurora Bank demo UI using the same transformed product data as the API. |
-| `data/` | Local Kraken-shaped mock responses mounted read-only by Docker Compose. |
+| `data/` | Local -shaped mock responses mounted read-only by Docker Compose. |
 
 The API and UI intentionally share the same core logic so the visible demo cannot drift from the machine-readable endpoint.
 
@@ -101,7 +101,7 @@ Files are classified by response shape:
 
 Valid records are merged in sorted filename order. Duplicate strategy IDs or asset codes are deterministic: later files win. This lets graders add fixture files without code changes and gives Aurora a predictable override model for future test data.
 
-Runtime network access is not required. The application code does not call Kraken, `fetch`, `axios`, or any outbound HTTP client at runtime.
+Runtime network access is not required. The application code does not call , `fetch`, `axios`, or any outbound HTTP client at runtime.
 
 The frontend also uses system font stacks only. It does not import `next/font/google`, so `npm run build` and the Docker build do not fetch Google Fonts.
 
@@ -131,10 +131,10 @@ Unsupported or ambiguous mock lock types such as `flex`, `timed`, and `hybrid` a
 
 Asset display:
 
-- Kraken asset codes are normalized with Asset Info `altname` when available, for example `XETH -> ETH` and `XADA -> ADA`.
-- Missing asset metadata falls back to the raw Kraken asset code.
+-  asset codes are normalized with Asset Info `altname` when available, for example `XETH -> ETH` and `XADA -> ADA`.
+- Missing asset metadata falls back to the raw  asset code.
 
-`can_allocate` is not used as the Aurora tier filter. In Kraken's response it appears to represent account-level availability; this PoC calculates Aurora tier eligibility independently and documents that the two signals should be reconciled before production launch.
+`can_allocate` is not used as the Aurora tier filter. In 's response it appears to represent account-level availability; this PoC calculates Aurora tier eligibility independently and documents that the two signals should be reconciled before production launch.
 
 ## Verification
 
@@ -185,15 +185,15 @@ curl /earn-products?tier=bad      -> 400, INVALID_TIER
 | Next.js | One TypeScript service for the App Router API and demo UI. | Runtime stays local-only; production should move back to stable Next.js once the same dependency fixes are available outside canary. |
 | React | UI rendering for the reviewer-facing catalog. | No credentials or external API calls. |
 | Tailwind CSS | Small, local styling surface without a component framework dependency. | Styles compile at build time; no runtime service dependency. |
-| Zod | Runtime validation of Kraken-shaped fixture files before transformation. | Prevents malformed data from leaking raw exceptions into responses. |
+| Zod | Runtime validation of -shaped fixture files before transformation. | Prevents malformed data from leaking raw exceptions into responses. |
 | Vitest | Fast unit and route tests for business logic and submission guardrails. | Development-only dependency. |
 
 The project currently pins `next@16.3.0-canary.20` because the local audit path showed a patched dependency there before the next stable line. For a production Aurora implementation, I would prefer the latest stable Next.js version once it carries the same fix.
 
 ## Known Limitations
 
-- This is a local-fixture PoC, not an authenticated Kraken integration.
+- This is a local-fixture PoC, not an authenticated  integration.
 - APY labels use `en-US` formatting; production should use Aurora customer locale settings.
-- The mock schema names `apr_estimate`, while the requested frontend field is `apyValue`; production should confirm final APR/APY terminology and calculation with Kraken and Aurora Compliance.
+- The mock schema names `apr_estimate`, while the requested frontend field is `apyValue`; production should confirm final APR/APY terminology and calculation with  and Aurora Compliance.
 - The UI is a proof-of-concept review surface, not Aurora's production design system.
 - A CLI smoke-test command could reuse `src/lib/earn.ts`, but it is intentionally out of scope for v1 because the assessment prioritizes the HTTP service, Docker run path, data handling, tests, and documentation.
